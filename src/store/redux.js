@@ -3,9 +3,13 @@ import {
     initialState,
 } from "../utils/config";
 
-
 function reducer(state = initialState, action) {
     switch (action.type) {
+        case 'UPDATE_CITIES': {
+            return {
+                cities: action.data,
+            }
+        }
         default:
             return state
     }
