@@ -9,12 +9,21 @@ function reducer(state = initialState, action) {
             return {
                 cities: action.data,
                 selected: state.selected,
+                autoRefresh: state.autoRefresh,
             }
         }
         case 'SELECT_CITY': {
             return {
                 cities: state.cities,
                 selected: action.data,
+                autoRefresh: state.autoRefresh,
+            }
+        }
+        case 'SET_AUTOREFRESH': {
+            return {
+                cities: state.cities,
+                selected: state.selected,
+                autoRefresh: action.data,
             }
         }
         default:

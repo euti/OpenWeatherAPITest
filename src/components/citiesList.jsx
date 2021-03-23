@@ -14,6 +14,7 @@ import store from '../store/redux';
 import {
     updateCities,
     selectCity,
+    setAutoRefresh,
 } from "../store/actions";
 import {
     APIKey,
@@ -26,6 +27,7 @@ const CitiesList = (props) => {
     const {
         cities,
         selected,
+        refresh,
     } = props;
 
     const getWeather = cityName => {
@@ -38,7 +40,7 @@ const CitiesList = (props) => {
             .then(data => data)
     };
 
-    const handleUpdate = useCallback(names => {
+    const handleUpdate = useCallback((names, refresh = false) => {
         const updatedCities = names => {
             //if no city defined it updates all
             const updateNames = names || cities.map(city=>city.name);
@@ -56,13 +58,16 @@ const CitiesList = (props) => {
 
         updatedCities(names)
             .then( data => {
+                if (refresh)
+                    store.dispatch(setAutoRefresh(false ))
                 store.dispatch(updateCities(data))
             })
     },[cities]);
 
     useEffect(()=> {
-        handleUpdate()
-    },[])
+        if (refresh)
+            handleUpdate(undefined, true)
+    }, [handleUpdate, refresh])
 
     return (
         <Grid item xs>
@@ -113,6 +118,7 @@ const mapStateToProps = state => {
     return {
         cities: state.cities,
         selected: state.selected,
+        refresh: state.autoRefresh,
     }
 };
 

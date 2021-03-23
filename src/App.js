@@ -6,11 +6,13 @@ import {
 import {
     CitiesList,
     CityDetail,
+    AutoUpdater,
 } from './components';
 
 function App() {
     return (
         <div className="App">
+            <AutoUpdater />
             <Grid container>
                 <CitiesList />
                 <CityDetail />

@@ -11,3 +11,10 @@ export function selectCity(city) {
         data: city
     }
 }
+
+export function setAutoRefresh(state) {
+    return {
+        type: 'SET_AUTOREFRESH',
+        data: state,
+    }
+}

@@ -16,4 +16,8 @@ export const initialState = {
             weather: undefined,
         }],
     selected: {},
+    autoRefresh: true,
 };
+
+export const enableAutoUpdate = true;
+export const refreshSeconds = 10;
