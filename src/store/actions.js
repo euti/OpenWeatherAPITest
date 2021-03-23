@@ -5,9 +5,9 @@ export function updateCities(data) {
     }
 }
 
-export function selectCity(name) {
+export function selectCity(city) {
     return {
         type: 'SELECT_CITY',
-        data: name
+        data: city
     }
 }
