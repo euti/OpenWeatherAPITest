@@ -104,11 +104,13 @@ const CitiesList = (props) => {
                                     >
                                         ↺
                                     </IconButton>
+                                    {/* TODO add button to delete city */}
                                 </ListItemSecondaryAction>
                             </ListItem>
                         )
                     })
                 }
+                {/* TODO add form to add new cities */}
             </List>
         </Grid >
     )
