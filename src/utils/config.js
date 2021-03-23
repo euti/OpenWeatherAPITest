@@ -15,4 +15,5 @@ export const initialState = {
             name: "Paris",
             weather: undefined,
         }],
+    selected: {},
 };

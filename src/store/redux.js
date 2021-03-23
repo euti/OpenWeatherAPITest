@@ -8,6 +8,13 @@ function reducer(state = initialState, action) {
         case 'UPDATE_CITIES': {
             return {
                 cities: action.data,
+                selected: state.selected,
+            }
+        }
+        case 'SELECT_CITY': {
+            return {
+                cities: state.cities,
+                selected: action.data,
             }
         }
         default:

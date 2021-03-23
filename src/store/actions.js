@@ -4,3 +4,10 @@ export function updateCities(data) {
         data
     }
 }
+
+export function selectCity(name) {
+    return {
+        type: 'SELECT_CITY',
+        data: name
+    }
+}

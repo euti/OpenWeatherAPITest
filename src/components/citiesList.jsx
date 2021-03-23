@@ -13,6 +13,7 @@ import {
 import store from '../store/redux';
 import {
     updateCities,
+    selectCity,
 } from "../store/actions";
 import {
     APIKey,
@@ -24,6 +25,7 @@ import {
 const CitiesList = (props) => {
     const {
         cities,
+        selected,
     } = props;
 
     const getWeather = cityName => {
@@ -74,6 +76,8 @@ const CitiesList = (props) => {
                             <ListItem
                                 button
                                 key={index}
+                                selected={city.name===selected?.name}
+                                onClick={() => store.dispatch(selectCity(city))}
                             >
                                 <ListItemAvatar>
                                     <Avatar>
@@ -108,6 +112,7 @@ const CitiesList = (props) => {
 const mapStateToProps = state => {
     return {
         cities: state.cities,
+        selected: state.selected,
     }
 };
 
